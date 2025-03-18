@@ -1,54 +1,63 @@
-const canvas = document.getElementById('physics-canvas');
+// Set up canvas and context
+const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-// Set canvas size
-canvas.width = 800; // Width of the canvas
-canvas.height = 400; // Height of the canvas
+// Define physics object properties
+const balls = [];
+const gravity = 0.5;
+const friction = 0.99;
 
-let ball = {
-  x: canvas.width / 2,
-  y: canvas.height / 2,
-  radius: 20, // Smaller ball
-  dx: 3, // Slower horizontal speed
-  dy: 3, // Slower vertical speed
-  color: '#00ff00', // Green ball
-
-// Draw the ball
-function drawBall() {
-  ctx.beginPath();
-  ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-  ctx.fillStyle = ball.color;
-  ctx.fill();
-  ctx.closePath();
+function createBall() {
+    const ball = {
+        x: Math.random() * canvas.width,
+        y: 0,
+        radius: 20 + Math.random() * 30,
+        vx: (Math.random() - 0.5) * 4,  // Random horizontal velocity
+        vy: (Math.random() + 0.5) * 4,  // Random vertical velocity
+        color: `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`,
+    };
+    balls.push(ball);
 }
 
-// Update ball position and handle collisions
-function updateBall() {
-  // Move the ball
-  ball.x += ball.dx;
-  ball.y += ball.dy;
+// Update physics
+function updatePhysics() {
+    balls.forEach((ball, index) => {
+        ball.vy += gravity;  // Apply gravity
+        ball.x += ball.vx;   // Update position
+        ball.y += ball.vy;
 
-  // Collision with walls
-  if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
-    ball.dx = -ball.dx; // Reverse horizontal direction
-  }
-  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
-    ball.dy = -ball.dy; // Reverse vertical direction
-  }
+        // Bounce off the walls
+        if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+            ball.vx = -ball.vx;
+        }
+
+        // Bounce off the bottom
+        if (ball.y + ball.radius > canvas.height) {
+            ball.y = canvas.height - ball.radius;
+            ball.vy = -ball.vy * friction; // Apply some friction on bounce
+        }
+    });
 }
 
-// Clear the canvas
-function clearCanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+// Draw balls
+function drawBalls() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+    balls.forEach((ball) => {
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.fillStyle = ball.color;
+        ctx.fill();
+        ctx.closePath();
+    });
 }
 
-// Animation loop
-function animate() {
-  clearCanvas();
-  drawBall();
-  updateBall();
-  requestAnimationFrame(animate);
+// Game loop to animate
+function gameLoop() {
+    updatePhysics();
+    drawBalls();
+    requestAnimationFrame(gameLoop);
 }
 
-// Start the animation
-animate();
+// Initialize balls and start animation
+setInterval(createBall, 1000); // Create a new ball every second
+gameLoop();
