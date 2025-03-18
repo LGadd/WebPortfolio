@@ -69,3 +69,24 @@ select {
     border-radius: 8px;
     padding: 5px 10px;
 }
+
+.container {
+    text-align: center;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+input[type="range"] {
+    width: 200px;
+}
+
+.canvas-container {
+    border: 1px solid #000;
+    display: inline-block;
+}
+
+canvas {
+    background-color: #e0e0e0;
+}
