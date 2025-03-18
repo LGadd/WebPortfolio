@@ -3,51 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerd's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Physics Simulator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
-        <p>Game Developer | Programmer | Prestige Master</p>
-    </header>
-
-    <section class="about">
-              <h2>About Me</h2>
-        <p>Since building my first PC at 13 and starting Computer Science lessons around the same time, I have beem learning non-stop and I absolutely love it!</p>
-        <p>I love to make video games and like to program even more, No code can be perfect but it is all beautiful.</p>
-        <p>Physics is something I find fascinating and I have created complex simulations for Motobikes, Cars and Helicopters and I am still continuing to improve them.</p>
-        <p>Theres lots you can Play, View, Read on the site and I would greatly appreciate any feedback or networking opportunities</p>
-    </section>
-
-    <section class="projects">
-        <h2>Featured Projects</h2>
-        <p>Check out some of my latest creations!</p>
-    </section>
-
     <div class="container">
-    <h1>Physics Simulator</h1>
-    <div class="controls">
-        <label for="mass">Mass:</label>
-        <input type="range" id="mass" min="1" max="10" value="5">
-        <span id="massValue">5</span>
+        <h1>Physics Simulator</h1>
+        <div class="controls">
+            <label for="mass">Mass:</label>
+            <input type="range" id="mass" min="1" max="10" value="5">
+            <span id="massValue">5</span>
 
-        <label for="force">Force:</label>
-        <input type="range" id="force" min="1" max="100" value="50">
-        <span id="forceValue">50</span>
+            <label for="force">Force:</label>
+            <input type="range" id="force" min="1" max="100" value="50">
+            <span id="forceValue">50</span>
 
-        <label for="gravity">Gravity:</label>
-        <input type="range" id="gravity" min="0" max="20" value="9.8">
-        <span id="gravityValue">9.8</span>
+            <label for="gravity">Gravity:</label>
+            <input type="range" id="gravity" min="0" max="20" value="9.8">
+            <span id="gravityValue">9.8</span>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="physicsCanvas"></canvas>
+        </div>
     </div>
 
-    <div class="canvas-container">
-        <canvas id="physicsCanvas"></canvas>
-    </div>
-</div>
     <script src="script.js"></script>
 </body>
-</html>
-
 </html>
