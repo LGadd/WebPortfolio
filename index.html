@@ -1,15 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Click to Spawn Ball</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerd's Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+
+    <!-- Slick Carousel Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
 </head>
 <body>
-  <div class="container" id="container">
-    <!-- Balls will be spawned here -->
-  </div>
-  <script src="script.js"></script>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Gerd's Game Development Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#unity-projects">Unity Projects</a></li>
+                    <li><a href="#unreal-projects">Unreal Projects</a></li>
+                    <li><a href="#youtube-tutorials">YouTube</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hi! I'm Gerd, an indie game developer with over 5 years of experience working with both Unity and Unreal Engine. I specialize in creating immersive experiences and innovative game mechanics. Welcome to my portfolio!</p>
+        </div>
+    </section>
+
+    <!-- Unity Projects Section -->
+    <section id="unity-projects" class="section">
+        <div class="container">
+            <h2>Unity Projects</h2>
+            <div class="carousel">
+                <div><img src="https://via.placeholder.com/500x300/FFD700/FFFFFF?text=Unity+Project+1" alt="Unity Project 1"></div>
+                <div><img src="https://via.placeholder.com/500x300/FFD700/FFFFFF?text=Unity+Project+2" alt="Unity Project 2"></div>
+                <div><img src="https://via.placeholder.com/500x300/FFD700/FFFFFF?text=Unity+Project+3" alt="Unity Project 3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unreal Projects Section -->
+    <section id="unreal-projects" class="section">
+        <div class="container">
+            <h2>Unreal Projects</h2>
+            <div class="carousel">
+                <div><img src="https://via.placeholder.com/500x300/B8860B/FFFFFF?text=Unreal+Project+1" alt="Unreal Project 1"></div>
+                <div><img src="https://via.placeholder.com/500x300/B8860B/FFFFFF?text=Unreal+Project+2" alt="Unreal Project 2"></div>
+                <div><img src="https://via.placeholder.com/500x300/B8860B/FFFFFF?text=Unreal+Project+3" alt="Unreal Project 3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Tutorials Section -->
+    <section id="youtube-tutorials" class="section">
+        <div class="container">
+            <h2>YouTube Tutorials</h2>
+            <div class="video-gallery">
+                <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id2" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Feel free to get in touch with me for collaborations, inquiries, or feedback!</p>
+            <ul>
+                <li><a href="mailto:your-email@example.com">Email</a></li>
+                <li><a href="https://linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/your-github" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Gerd | All rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
