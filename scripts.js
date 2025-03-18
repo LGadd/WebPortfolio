@@ -1,69 +1,62 @@
-// Interactive Developer Tool
-function runCode() {
-    const codeInput = document.getElementById("code-input").value;
-    const outputElement = document.getElementById("output");
-    try {
-        const result = eval(codeInput);
-        outputElement.textContent = result !== undefined ? result : 'Code executed successfully';
-    } catch (error) {
-        outputElement.textContent = 'Error: ' + error.message;
-    }
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
 }
-
-// Physics Simulation
-const canvas = document.getElementById("physicsCanvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = canvas.clientWidth;
-canvas.height = canvas.clientHeight;
-
-let particles = [];
-
-class Particle {
-    constructor(x, y, vx, vy) {
-        this.x = x;
-        this.y = y;
-        this.vx = vx;
-        this.vy = vy;
-        this.radius = 5;
-    }
-
-    update() {
-        this.vy += 0.1; // Gravity effect
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.y + this.radius > canvas.height) {
-            this.y = canvas.height - this.radius;
-            this.vy *= -0.7; // Bounce
-        }
-
-        if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
-            this.vx *= -1; // Bounce off walls
-        }
-    }
-
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#4CAF50";
-        ctx.fill();
-        ctx.closePath();
-    }
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-// Create particles
-for (let i = 0; i < 50; i++) {
-    particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 2 - 1, Math.random() * 2 - 1));
+section {
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 900px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
 }
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-    });
-    requestAnimationFrame(animate);
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    border: 2px solid #4CAF50;
 }
-
-animate();
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+button:hover {
+    background-color: #45a049;
+}
+pre#output {
+    background: #222;
+    color: #4CAF50;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    min-height: 50px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+canvas {
+    width: 100%;
+    height: 300px;
+    background-color: #ddd;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+}
