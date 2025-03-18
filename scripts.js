@@ -8,10 +8,10 @@ canvas.height = 400;
 let ball = {
   x: canvas.width / 2,
   y: canvas.height / 2,
-  radius: 20,
+  radius: 30,
   dx: 4, // Horizontal speed
   dy: 4, // Vertical speed
-  color: '#ffd700', // Gold color
+  color: '#000000', // Gold color
 };
 
 function drawBall() {
