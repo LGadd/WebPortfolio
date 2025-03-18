@@ -26,18 +26,26 @@
         <p>Check out some of my latest creations!</p>
     </section>
 
-    <section class="dev-tool">
-        <h2>Interactive Developer Tool</h2>
-        <textarea id="code-input" placeholder="Write some JavaScript here..."></textarea>
-        <button onclick="runCode()">Run Code</button>
-        <pre id="output"></pre>
-    </section>
+    <div class="container">
+    <h1>Physics Simulator</h1>
+    <div class="controls">
+        <label for="mass">Mass:</label>
+        <input type="range" id="mass" min="1" max="10" value="5">
+        <span id="massValue">5</span>
 
-    <section class="physics-demo">
-        <h2>Physics Simulation</h2>
+        <label for="force">Force:</label>
+        <input type="range" id="force" min="1" max="100" value="50">
+        <span id="forceValue">50</span>
+
+        <label for="gravity">Gravity:</label>
+        <input type="range" id="gravity" min="0" max="20" value="9.8">
+        <span id="gravityValue">9.8</span>
+    </div>
+
+    <div class="canvas-container">
         <canvas id="physicsCanvas"></canvas>
-    </section>
-
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
