@@ -55,6 +55,32 @@ nav ul li a:hover {
     background: #ff6347;
 }
 
+/* Simulation Section */
+.simulation {
+    padding: 2rem;
+    text-align: center;
+}
+
+.simulation-container {
+    width: 100%;
+    height: 400px;
+    background: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.ball {
+    width: 50px;
+    height: 50px;
+    background: #ff6347;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* About Section */
 .about {
     padding: 2rem;
