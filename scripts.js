@@ -7,10 +7,11 @@ let ball = {
     x: 400,
     y: 400,
     radius: parseInt(sizeInput.value),
-    velocityX: 3,
-    velocityY: 2,
-    accelerationX: 0.1,
-    accelerationY: 0.1
+    velocityX: 0,
+    velocityY: 0,
+    accelerationX: 0,
+    accelerationY: 0,
+    gravity = -9.81
 };
 
 // Fixed time step variables
@@ -19,6 +20,7 @@ const timeStep = 1 / 60; // 60 updates per second (fixed timestep in seconds)
 let accumulator = 0;
 
 function updateBall(dt) {
+    ball.accelerationY = ball.gravity;
     // Apply acceleration
     ball.velocityX += ball.accelerationX * dt;
     ball.velocityY += ball.accelerationY * dt;
