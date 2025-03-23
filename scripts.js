@@ -1,7 +1,22 @@
 const canvas = document.getElementById("ballCanvas");
 const ctx = canvas.getContext("2d");
+
 const sizeInput = document.getElementById("size");
+const sizeValue = document.getElementById("SizeValue");
+
 const gravInput = document.getElementById("gravity");
+const gravValue = document.getElementById("gravityValue");
+
+const massInput = document.getElementById("mass");
+const massValue = document.getElementById("massValue");
+
+const forceYInput = document.getElementById("forceY");
+const forceYValue = document.getElementById("forceYValue");
+
+const elasticityInput = document.getElementById("elasticity");
+const elasticityValue = document.getElementById("elasticityValue");
+
+const impulseButton = document.getElementById("impulseButton");
 
 // Ball properties
 let ball = {
@@ -12,7 +27,10 @@ let ball = {
     velocityY: 0,
     accelerationX: 0,
     accelerationY: 0,
-    gravity: parseFloat=(gravInput.value),
+    gravity: parseFloat(gravInput.value),
+    mass: parseFloat(massInput.value),
+    force: parseFloat(forceYInput.value),
+    elasticity: parseFloat(elasticityInput.value),
 };
 
 // Fixed time step variables
@@ -21,8 +39,11 @@ const timeStep = 1 / 60; // 60 updates per second (fixed timestep in seconds)
 let accumulator = 0;
 
 function updateBall(dt) {
-    ball.accelerationY = ball.gravity;
-    // Apply acceleration
+    ball.accelerationY = -ball.gravity;
+    ball.accelerationY -= ball.force/ball.mass;
+    
+    ball.accelerationY *= 100;
+
     ball.velocityX += ball.accelerationX * dt;
     ball.velocityY += ball.accelerationY * dt;
 
@@ -32,10 +53,10 @@ function updateBall(dt) {
 
     // Collision detection & response
     if (ball.x - ball.radius <= 0 || ball.x + ball.radius >= canvas.width) {
-        ball.velocityX *= -0.9; // Reduce velocity on impact (energy loss)
+        ball.velocityX *= -(ball.elasticity / 100); // Reduce velocity on impact (energy loss)
     }
     if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
-        ball.velocityY *= -0.9; // Reduce velocity on impact (energy loss)
+        ball.velocityY *= -(ball.elasticity / 100); // Reduce velocity on impact (energy loss)
     }
 
     // Keep ball inside boundaries
@@ -67,10 +88,43 @@ function gameLoop(currentTime) {
     requestAnimationFrame(gameLoop);
 }
 
+impulseButton.addEventListener("click",() =>{
+    const impulseStrength = Math.random() * 100 + 100;
+    const angle = Math.random() * Math.PI * 2;
+
+    const impulseX = Math.cos(angle)*impulseStrength;
+    const impulseY = -Math.abs(Math.sin(angle)*impulseStrength);
+    
+    ball.velocityX += impulseX/ball.mass*100;
+    ball.velocityY += impulseY/ball.mass*100;
+})
+
 // Handle size change
 sizeInput.addEventListener("input", () => {
     ball.radius = parseInt(sizeInput.value);
+    sizeValue.textContent = sizeInput.value;
 });
 
+//Handle Gravity Change
+gravInput.addEventListener("input",() => {
+    ball.gravity = parseFloat(gravInput.value);
+    gravValue.textContent = gravInput.value;
+
+}); 
+
+massInput.addEventListener("input",() => {
+    ball.mass = parseFloat(massInput.value);
+    massValue.textContent = massInput.value;
+});
+
+forceYInput.addEventListener("input",() =>{
+    ball.force = parseFloat(forceYInput.value);
+    forceYValue.textContent = forceYInput.value;
+});
+
+elasticityInput.addEventListener("input",()=>{
+    ball.elasticity = parseFloat(elasticityInput.value);
+    elasticityValue.textContent = elasticityInput.value/100;
+});
 // Start game loop
 requestAnimationFrame(gameLoop);
