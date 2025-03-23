@@ -1,3 +1,4 @@
+/* Fullscreen Centering */
 body {
     display: flex;
     justify-content: center;
@@ -6,18 +7,74 @@ body {
     margin: 0;
     background-color: #222;
     flex-direction: column;
+    font-family: Arial, sans-serif;
 }
 
+/* Canvas Styling */
 canvas {
-    background-color: rgb(255, 255, 255);
-    border: 2px solid #000;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Control Panel Styling */
 .controls {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: flex;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
     color: white;
-    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Slider Styling */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 180px;
+    height: 6px;
+    background: #ff5733;
+    border-radius: 5px;
+    outline: none;
+    transition: opacity 0.2s;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #ff5733;
+    cursor: pointer;
+}
+
+#sizeValue {
+    font-weight: bold;
+    color: #ff5733;
+}
+
+/* Button Styling */
+button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 18px;
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Hover Effect */
+button:hover {
+    background-color: #e74c3c;
+    transform: scale(1.05);
+}
+
+/* Click Effect */
+button:active {
+    transform: scale(0.95);
 }
