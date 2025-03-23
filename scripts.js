@@ -1,6 +1,7 @@
 const canvas = document.getElementById("ballCanvas");
 const ctx = canvas.getContext("2d");
 const sizeInput = document.getElementById("size");
+const gravInput = document.getElementById("gravity");
 
 // Ball properties
 let ball = {
