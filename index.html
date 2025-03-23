@@ -11,11 +11,28 @@
     <div class="controls">
         <label for="size">Ball Size:</label>
         <input type="range" id="size" min="10" max="100" value="30">
+        <span id="sizeValue">30</span>
+        
         <label for="gravity">Gravity:</label>
-        <input type="range" id="gravity" min="-50" max="50" value="-9.81">
+        <input type="range" id="gravity" min="-20" max="20" value="-9.81">
+        <span id="gravityValue">-9.81</span>
+    
+        <label for="mass">Mass:</label>
+        <input type="range" id="mass" min="1" max="100" value="10">
+        <span id="massValue">10</span>
+
+        <label for="force">Force:</label>
+        <input type="range" id="forceY" min="-1000" max="1000" value="0">
+        <span id="forceYValue">0</span>
+
+        <label for="elasticity">Elasticity:</label>
+        <input type="range" id="elasticity" min="0" max="100" value="90">
+        <span id="elasticityValue">0.9</span>
     </div>
 
-    <canvas id="ballCanvas" width="800" height="800"></canvas>
+    <canvas id="ballCanvas" width="1586" height="980"></canvas>
+
+    <button id="impulseButton">Apply Impulse</button>
 
     <script src="scripts.js"></script>
 </body>
