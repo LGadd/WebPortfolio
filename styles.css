@@ -14,7 +14,8 @@ body {
     height: 100vh;
     background: linear-gradient(135deg, #1a1a2e, #16213e);
     overflow: hidden;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 30px; /* Space between canvas and controls */
     color: white;
     text-align: center;
     font-size: 16px;
@@ -134,6 +135,8 @@ canvas {
     border-radius: 8px;
     margin-top: 30px;
     box-sizing: border-box;
+    flex-grow: 1; /* Make the canvas take up remaining space */
+    max-width: 70%; /* Restrict the canvas size */
 }
 
 /* Animating Glow for Impulse Effect */
@@ -145,5 +148,16 @@ canvas {
     100% {
         transform: translate(80px, 80px);
         opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stack elements vertically */
+        gap: 20px; /* Reduce the gap between canvas and controls */
+    }
+
+    canvas {
+        max-width: 100%; /* Allow canvas to take full width on mobile */
     }
 }
