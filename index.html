@@ -3,69 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ball Bounce Simulation</title>
+    <title>Ball Simulation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <h1>Welcome to My Portfolio</h1>
-        <p>I am a passionate developer creating amazing web experiences.</p>
-        <button class="cta-button">Hire Me</button>
-    </section>
+    <div class="controls">
+        <label for="size">Ball Size:</label>
+        <input type="range" id="size" min="10" max="100" value="30">
+    </div>
 
-    <section id="simulation" class="simulation">
-        <h2>Ball Bounce Simulation</h2>
-        <div class="simulation-container">
-            <div class="ball"></div>
-        </div>
-    </section>
+    <canvas id="ballCanvas" width="800" height="800"></canvas>
 
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <p>I specialize in front-end development with a focus on modern, responsive design.</p>
-    </section>
-
-    <section id="projects" class="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Description of Project 1.</p>
-                <button class="project-button">View Project</button>
-            </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Description of Project 2.</p>
-                <button class="project-button">View Project</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="submit-button">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 My Portfolio. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
