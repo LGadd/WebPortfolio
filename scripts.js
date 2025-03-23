@@ -2,6 +2,7 @@ const canvas = document.getElementById("ballCanvas");
 const ctx = canvas.getContext("2d");
 const sizeInput = document.getElementById("size");
 
+// Ball properties
 let ball = {
     x: 400,
     y: 400,
@@ -12,16 +13,21 @@ let ball = {
     accelerationY: 0.1
 };
 
-function updateBall() {
+// Fixed time step variables
+let lastTime = performance.now();
+const timeStep = 1 / 60; // 60 updates per second (fixed timestep in seconds)
+let accumulator = 0;
+
+function updateBall(dt) {
     // Apply acceleration
-    ball.velocityX += ball.accelerationX;
-    ball.velocityY += ball.accelerationY;
+    ball.velocityX += ball.accelerationX * dt;
+    ball.velocityY += ball.accelerationY * dt;
 
     // Update position
-    ball.x += ball.velocityX;
-    ball.y += ball.velocityY;
+    ball.x += ball.velocityX * dt;
+    ball.y += ball.velocityY * dt;
 
-    // Collision with walls (bounce effect)
+    // Collision detection & response
     if (ball.x - ball.radius <= 0 || ball.x + ball.radius >= canvas.width) {
         ball.velocityX *= -0.9; // Reduce velocity on impact (energy loss)
     }
@@ -44,10 +50,18 @@ function drawBall() {
     ctx.stroke();
 }
 
-function animate() {
-    updateBall();
+function gameLoop(currentTime) {
+    let deltaTime = (currentTime - lastTime) / 1000; // Convert ms to seconds
+    lastTime = currentTime;
+    accumulator += deltaTime;
+
+    while (accumulator >= timeStep) {
+        updateBall(timeStep);
+        accumulator -= timeStep;
+    }
+
     drawBall();
-    requestAnimationFrame(animate);
+    requestAnimationFrame(gameLoop);
 }
 
 // Handle size change
@@ -55,4 +69,5 @@ sizeInput.addEventListener("input", () => {
     ball.radius = parseInt(sizeInput.value);
 });
 
-animate();
+// Start game loop
+requestAnimationFrame(gameLoop);
