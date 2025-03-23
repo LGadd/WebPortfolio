@@ -12,7 +12,7 @@ let ball = {
     velocityY: 0,
     accelerationX: 0,
     accelerationY: 0,
-    gravity: = parseInt(gravInput.value)
+    gravity: = parseInt(gravInput.value),
 };
 
 // Fixed time step variables
