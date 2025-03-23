@@ -150,14 +150,3 @@ canvas {
         opacity: 1;
     }
 }
-
-@media (max-width: 768px) {
-    body {
-        flex-direction: column; /* Stack elements vertically */
-        gap: 20px; /* Reduce the gap between canvas and controls */
-    }
-
-    canvas {
-        max-width: 100%; /* Allow canvas to take full width on mobile */
-    }
-}
