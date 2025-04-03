@@ -3,37 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ball Simulation</title>
+    <title>Laurence Gadd's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <div class="controls">
-        <label for="size">Ball Size:</label>
-        <input type="range" id="size" min="10" max="100" value="30">
-        <span id="sizeValue">30</span>
-        
-        <label for="gravity">Gravity:</label>
-        <input type="range" id="gravity" min="-20" max="20" value="-9.81">
-        <span id="gravityValue">-9.81</span>
+    <header>
+        <h1>Gerd's Game Development Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     
-        <label for="mass">Mass:</label>
-        <input type="range" id="mass" min="1" max="100" value="10">
-        <span id="massValue">10</span>
-
-        <label for="force">Force:</label>
-        <input type="range" id="forceY" min="-1000" max="1000" value="0">
-        <span id="forceYValue">0</span>
-
-        <label for="elasticity">Elasticity:</label>
-        <input type="range" id="elasticity" min="0" max="100" value="90">
-        <span id="elasticityValue">0.9</span>
-    </div>
-
-    <canvas id="ballCanvas" width="980" height="980"></canvas>
-
-    <button id="impulseButton">Apply Impulse</button>
-
-    <script src="scripts.js"></script>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Passionate game developer with experience in Unity and Unreal Engine, specializing in vehicle physics, gameplay programming, and interactive simulations.</p>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Car Physics Simulator</h3>
+            <p>A detailed vehicle physics engine created in Unity, featuring realistic suspension and traction mechanics.</p>
+        </div>
+        <div class="project">
+            <h3>Unreal Vehicle Simulation</h3>
+            <p>Custom vehicle physics built from scratch in Unreal Engine 5 using Blueprints.</p>
+        </div>
+        <!-- More projects can be added dynamically -->
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: your.email@example.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/laurence-gadd/">Your Profile</a></p>
+        <p>GitHub: <a href="https://github.com/LGadd">Your GitHub</a></p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Laurence Gadd. All rights reserved.</p>
+    </footer>
 </body>
 </html>
