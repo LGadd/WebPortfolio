@@ -51,6 +51,7 @@ section {
     padding: 50px;
 }
 
+/* Project Card Styling */
 .project {
     background: var(--dark-gold);
     padding: 20px;
@@ -66,6 +67,7 @@ section {
     box-shadow: 0px 0px 15px var(--light-gold);
 }
 
+/* Button Styling */
 button {
     background: var(--gold);
     border: none;
@@ -81,8 +83,54 @@ button:hover {
     transform: scale(1.1);
 }
 
+/* Footer */
 footer {
     background: var(--gold);
     padding: 10px;
     color: var(--background);
+}
+
+/* Image Carousel */
+.carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px var(--light-gold);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Navigation Buttons */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.prev, .next {
+    background: var(--dark-gold);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: var(--gold);
+    transform: scale(1.1);
 }
