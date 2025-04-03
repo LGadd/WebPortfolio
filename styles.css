@@ -1,132 +1,88 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --gold: #f4c542;
+    --dark-gold: #d68c1e;
+    --light-gold: #f9e79f;
+    --background: #222;
+    --text-color: #fff;
 }
 
 body {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    margin: 0;
+    text-align: center;
+    scroll-behavior: smooth;
+}
+
+header {
+    background: var(--gold);
     padding: 20px;
+    transition: background 0.3s ease-in-out;
 }
 
-/* Canvas Styling */
-#ballCanvas {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    margin: 20px 0;
+h1 {
+    margin: 0;
+    color: var(--background);
 }
 
-/* Controls Section */
-.controls {
-    background: rgba(255, 255, 255, 0.1);
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--background);
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--dark-gold);
+}
+
+section {
+    padding: 50px;
+}
+
+.project {
+    background: var(--dark-gold);
     padding: 20px;
+    margin: 20px auto;
+    width: 80%;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 600px;
+    transition: transform 0.3s, background 0.3s;
 }
 
-.controls label {
-    display: block;
-    margin: 10px 0 5px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #fff;
+.project:hover {
+    transform: scale(1.05);
+    background: var(--gold);
+    box-shadow: 0px 0px 15px var(--light-gold);
 }
 
-.controls input[type="range"] {
-    width: 100%;
-    margin: 5px 0;
-    -webkit-appearance: none;
-    appearance: none;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    height: 8px;
-    outline: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-
-.controls input[type="range"]:hover {
-    opacity: 1;
-}
-
-.controls input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.controls input[type="range"]::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    background: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.controls span {
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 14px;
-    color: #fff;
-}
-
-/* Button Styling */
-#impulseButton {
-    background: linear-gradient(135deg, #ff6f61, #ff3b3f);
+button {
+    background: var(--gold);
     border: none;
-    border-radius: 25px;
-    color: #fff;
     padding: 10px 20px;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 1.2em;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s, background 0.3s;
+    border-radius: 5px;
 }
 
-#impulseButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+button:hover {
+    background: var(--dark-gold);
+    transform: scale(1.1);
 }
 
-#impulseButton:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .controls {
-        padding: 15px;
-    }
-
-    #ballCanvas {
-        width: 100%;
-        height: auto;
-    }
-
-    #impulseButton {
-        width: 100%;
-        padding: 15px;
-        font-size: 18px;
-    }
+footer {
+    background: var(--gold);
+    padding: 10px;
+    color: var(--background);
 }
