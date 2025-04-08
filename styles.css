@@ -1,137 +1,88 @@
+/* Retro GameBoy green color scheme */
 :root {
-    --gold: #f4c542;
-    --dark-gold: #d68c1e;
-    --light-gold: #f9e79f;
-    --background: #222;
-    --text-color: #fff;
+  --green-light: #9bbc0f;
+  --green-medium: #8bac0f;
+  --green-dark: #306230;
+  --screen-bg: #0f380f;
+  --pixel-font: 'Press Start 2P', monospace;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background);
-    color: var(--text-color);
-    margin: 0;
-    text-align: center;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  background-color: var(--screen-bg);
+  color: var(--green-light);
+  font-family: var(--pixel-font);
+  font-size: 12px;
+  line-height: 1.6;
+  text-shadow: 1px 1px var(--green-dark);
+  image-rendering: pixelated;
+}
+
+/* Simulate CRT scanlines */
+.scanlines {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 50%,
+    transparent 50%
+  );
+  background-size: 100% 4px;
+  z-index: 999;
+  opacity: 0.3;
+}
+
+header, main, footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
 }
 
 header {
-    background: var(--gold);
-    padding: 20px;
-    transition: background 0.3s ease-in-out;
+  text-align: center;
+  border-bottom: 2px solid var(--green-medium);
+  padding-bottom: 16px;
 }
 
 h1 {
-    margin: 0;
-    color: var(--background);
+  font-size: 20px;
+  color: var(--green-light);
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+h2 {
+  font-size: 14px;
+  margin-top: 24px;
+  color: var(--green-medium);
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+ul {
+  list-style: square;
+  padding-left: 24px;
 }
 
-nav ul li a {
-    color: var(--background);
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: var(--dark-gold);
-}
-
-section {
-    padding: 50px;
-}
-
-/* Project Card Styling */
-.project {
-    background: var(--dark-gold);
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 10px;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.project:hover {
-    transform: scale(1.05);
-    background: var(--gold);
-    box-shadow: 0px 0px 15px var(--light-gold);
-}
-
-/* Button Styling */
 button {
-    background: var(--gold);
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
-    border-radius: 5px;
+  background-color: var(--green-light);
+  color: var(--screen-bg);
+  border: 2px solid var(--green-medium);
+  font-family: var(--pixel-font);
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: transform 0.1s ease-in-out;
 }
 
 button:hover {
-    background: var(--dark-gold);
-    transform: scale(1.1);
+  background-color: var(--green-medium);
+  transform: scale(1.05);
 }
 
-/* Footer */
 footer {
-    background: var(--gold);
-    padding: 10px;
-    color: var(--background);
-}
-
-/* Image Carousel */
-.carousel-container {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px var(--light-gold);
-}
-
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-images img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-
-/* Navigation Buttons */
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-}
-
-.prev, .next {
-    background: var(--dark-gold);
-    color: var(--text-color);
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.prev:hover, .next:hover {
-    background: var(--gold);
-    transform: scale(1.1);
+  text-align: center;
+  font-size: 10px;
+  margin-top: 32px;
+  border-top: 1px solid var(--green-dark);
+  padding-top: 8px;
 }
