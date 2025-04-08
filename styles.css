@@ -1,4 +1,4 @@
-/* Retro GameBoy green color scheme */
+/* === Retro GameBoy Theme Variables === */
 :root {
   --green-light: #9bbc0f;
   --green-medium: #8bac0f;
@@ -7,6 +7,7 @@
   --pixel-font: 'Press Start 2P', monospace;
 }
 
+/* === Global Styles === */
 body {
   margin: 0;
   padding: 0;
@@ -17,24 +18,23 @@ body {
   line-height: 1.6;
   text-shadow: 1px 1px var(--green-dark);
   image-rendering: pixelated;
+  overflow-x: hidden;
+
+  /* Subtle grid wiggle */
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 8px 8px;
+  animation: gridShift 1.5s ease-in-out infinite;
 }
 
-/* Simulate CRT scanlines */
-.scanlines {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.1) 50%,
-    transparent 50%
-  );
-  background-size: 100% 4px;
-  z-index: 999;
-  opacity: 0.3;
+/* === Grid Wiggle Animation === */
+@keyframes gridShift {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 1px 1px; }
 }
 
+/* === Header/Footer Layout === */
 header, main, footer {
   max-width: 720px;
   margin: 0 auto;
@@ -63,6 +63,15 @@ ul {
   padding-left: 24px;
 }
 
+footer {
+  text-align: center;
+  font-size: 10px;
+  margin-top: 32px;
+  border-top: 1px solid var(--green-dark);
+  padding-top: 8px;
+}
+
+/* === Buttons === */
 button {
   background-color: var(--green-light);
   color: var(--screen-bg);
@@ -79,13 +88,45 @@ button:hover {
   transform: scale(1.05);
 }
 
-footer {
-  text-align: center;
-  font-size: 10px;
-  margin-top: 32px;
-  border-top: 1px solid var(--green-dark);
-  padding-top: 8px;
+/* === CRT Scanline Animation === */
+.scanlines {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 50%,
+    transparent 50%
+  );
+  background-size: 100% 4px;
+  z-index: 999;
+  opacity: 0.3;
+  animation: scanMove 0.4s linear infinite;
 }
+
+@keyframes scanMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 4px; }
+}
+
+/* === CRT Glow Pulse === */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.03), transparent 80%);
+  z-index: 998;
+  animation: screenPulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes screenPulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.2; }
+}
+
+/* === Drifting Pixels === */
 .pixel-drift {
   position: fixed;
   width: 8px;
@@ -103,4 +144,30 @@ footer {
   100% {
     transform: translate(110vw, 110vh) scale(1.5);
   }
+}
+
+/* === Boot Screen Animation === */
+.boot-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--screen-bg);
+  color: var(--green-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--pixel-font);
+  font-size: 10px;
+  z-index: 1000;
+  padding: 32px;
+  animation: flickerOut 2.5s ease-out forwards;
+  animation-delay: 2.5s;
+  white-space: pre;
+}
+
+@keyframes flickerOut {
+  0% { opacity: 1; }
+  90% { opacity: 0.2; }
+  100% { opacity: 0; display: none; visibility: hidden; }
 }
