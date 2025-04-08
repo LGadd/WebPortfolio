@@ -6,51 +6,62 @@
   <title>Laurence Gadd – Game Developer</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="scripts.js"></script>
-
-  <!-- Pixelated retro font -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="scanlines"></div> <!-- Visual scanline overlay for retro effect -->
+  <!-- Fake terminal boot animation -->
+  <div class="boot-screen" id="bootScreen">
+    <pre>
+Initializing system...
+Loading: ██████████░░ 90%
+Verifying ROM checksum...
+Launch sequence initiated.
+    </pre>
+  </div>
 
-  <header>
-    <h1>Laurence Gadd</h1>
-    <p>Game Developer | Vehicle Physics Specialist</p>
-  </header>
+  <div class="scanlines"></div>
 
-  <main>
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a passionate game developer with a particular obsession for simulating vehicle physics.
-        I create everything from scratch—suspension, friction, downforce—you name it. I enjoy building systems that *feel* real, but are easy for players and devs to interact with.
-      </p>
-    </section>
+  <!-- Background pixel drift -->
+  <div class="pixel-drift" style="top:10%; left:20%;"></div>
+  <div class="pixel-drift" style="top:40%; left:5%; animation-delay: 2s;"></div>
+  <div class="pixel-drift" style="top:70%; left:50%; animation-delay: 4s;"></div>
+  <div class="pixel-drift" style="top:30%; left:80%; animation-delay: 6s;"></div>
 
-    <section class="projects">
-      <h2>Featured Projects</h2>
-      <ul>
-        <li><strong>Unicy</strong> – Custom wheel colliders and terrain interaction in Unity</li>
-        <li><strong>CarSim Pro</strong> – Full vehicle sim system with gears, torque, and suspension</li>
-        <li><strong>SkyDrift</strong> – Arcade racing meets real-world handling physics</li>
-      </ul>
-    </section>
+  <!-- Actual content -->
+  <div id="mainContent" style="display: none;">
+    <header>
+      <h1>Laurence Gadd</h1>
+      <p>Game Developer | Vehicle Physics Specialist</p>
+    </header>
 
-    <section class="contact">
-      <h2>Contact</h2>
-      <button id="emailButton">Email Me</button>
-    </section>
-  </main>
+    <main>
+      <section class="about">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate game developer with a particular obsession for simulating vehicle physics.
+          I create everything from scratch—suspension, friction, downforce—you name it. I enjoy building systems that *feel* real, but are easy for players and devs to interact with.
+        </p>
+      </section>
 
-  <footer>
-    <p>© 2025 Laurence Gadd</p>
-  </footer>
-<!-- Retro drifting pixel elements -->
-<div class="pixel-drift" style="top:10%; left:20%;"></div>
-<div class="pixel-drift" style="top:40%; left:5%; animation-delay: 2s;"></div>
-<div class="pixel-drift" style="top:70%; left:50%; animation-delay: 4s;"></div>
-<div class="pixel-drift" style="top:30%; left:80%; animation-delay: 6s;"></div>
+      <section class="projects">
+        <h2>Featured Projects</h2>
+        <ul>
+          <li><strong>Unicy</strong> – Custom wheel colliders and terrain interaction in Unity</li>
+          <li><strong>CarSim Pro</strong> – Full vehicle sim system with gears, torque, and suspension</li>
+          <li><strong>SkyDrift</strong> – Arcade racing meets real-world handling physics</li>
+        </ul>
+      </section>
 
+      <section class="contact">
+        <h2>Contact</h2>
+        <button id="emailButton">Email Me</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Laurence Gadd</p>
+    </footer>
+  </div>
 </body>
 </html>
